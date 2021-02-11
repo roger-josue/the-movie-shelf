@@ -1,6 +1,9 @@
+/*==================== General Styling====================*/
 @use './styles/basics/base';
 @use './styles/utilities/helpers';
 @use './styles/animations/animations';
 
+/*==================== Navbar Component ====================*/
+@use './styles/components/navbar';
 
-/*==================== Header Component====================*/
+
