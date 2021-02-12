@@ -41,7 +41,7 @@
         opacity: 0;
     }
 }
-
+// TODO: Try to animate top property so the menu does not have to fall from the top, just from its position
 @keyframes menu-in {
     from{
         transform: translatey(-192px);
@@ -105,14 +105,7 @@
     }
 }
 
-@keyframes from-left {
-    from{
-        flex-basis: 0%;
-    }
-    to{
-        flex-basis: 70%;
-    }
-}
+
 
 @keyframes shake {
     0%,50%{
