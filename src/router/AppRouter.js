@@ -6,7 +6,7 @@ import {
   Redirect
 } from "react-router-dom";
 
-import { Navbar } from "../Components/Navbar";
+import { Navbar } from "../Components/ui/Navbar";
 import { HomeScreen } from "../Components/screens/HomeScreen";
 import { MoviesScreen } from "../Components/screens/MoviesScreen";
 import { TvShowsScreen } from "../Components/screens/TvShowsScreen";

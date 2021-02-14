@@ -41,25 +41,29 @@
         opacity: 0;
     }
 }
-// TODO: Try to animate top property so the menu does not have to fall from the top, just from its position
+
 @keyframes menu-in {
     from{
-        transform: translatey(-192px);
+        // transform: translatey(-192px);
+        top: -30px;
         visibility: hidden;
     }
     to{
-        transform: translatey(0px);
+        // transform: translatey(0px);
+        top: 70px;
         visibility: visible;
     }
 }
 
 @keyframes menu-out {
     from{
-        transform: translatey(0px);
+        // transform: translatey(0px);
+        top: 70px;
         visibility: visible;
     }
     to{
-        transform: translatey(-192px);
+        // transform: translatey(-192px);
+        top: -30px;
         visibility: hidden;
     }
 }

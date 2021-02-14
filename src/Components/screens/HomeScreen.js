@@ -3,9 +3,8 @@ import { Hero } from '../Hero';
 
 export const HomeScreen = () => {
     return (
-        <div style={{height: '150vh'}}>
+        <div className="screen">
             <Hero />
-            <h1>Home screen</h1>
         </div>
     )
 }

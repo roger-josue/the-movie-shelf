@@ -31,9 +31,9 @@ export const Navbar = () => {
     const handleToggle = (e) => {
         setToggleMenu( toggle => !toggle );
         if( toggleMenu) {
-            menu.current.style = 'animation: menu-out 400ms ease-in-out forwards';
+            menu.current.style = 'animation: menu-out 200ms ease-in-out forwards';
         } else{
-            menu.current.style = 'animation: menu-in 400ms ease-in-out forwards';
+            menu.current.style = 'animation: menu-in 200ms ease-in-out forwards';
         }
     }
 
