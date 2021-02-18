@@ -1,0 +1,17 @@
+@use '../utilities/helpers' as helpers;
+
+.swiper-pagination-bullet{
+    background-color: helpers.setColor(text-secondary) !important;
+    opacity: 0.5 !important;
+
+    &-active{
+        opacity: 1 !important;
+        background-color: helpers.setColor(primary) !important;
+    }
+}
+
+.swiper-button-prev,
+.swiper-button-next{
+    opacity: 0.75 !important;
+    color: helpers.setColor(primary) !important;  
+}
