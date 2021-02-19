@@ -1,25 +1,23 @@
-// import { types } from "../types/types";
+import { types } from "../types/types";
 
-const initialState = [
-//     {
-//     title: '',
-//     id: null,
-//     overview: '',
-//     backdrop_path: '',
-//     poster_path: '',
-//     genres: [],
-//     release_date: '',
-//     vote_average: ''
-// }
-]
+const initialState = {
+    popular: [],
+    onTheaters: [],
+
+}
 
 export const moviesReducer = ( state= initialState, action)=> {
     switch (action.type) {
-        // case types.login:
-        //     return {
-        //         uid: action.payload.uid,
-        //         name: action.payload.displayName,
-        //     }
+        case types.moviesFetchPopular:
+            return {
+                ...state,
+                popular: action.payload
+            }
+        case types.moviesFetchOnTheaters:
+            return {
+                ...state,
+                onTheaters: action.payload
+            }
 
         default:
             return state;

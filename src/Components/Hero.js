@@ -1,32 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux';
+
+// SWiper
 import { Swiper, SwiperSlide} from 'swiper/react';
 import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper';
-
 // SWiper styles
 import 'swiper/swiper.scss';
 import 'swiper/components/navigation/navigation.scss';
 import 'swiper/components/pagination/pagination.scss';
 
-import { getPopularMovies } from '../helpers/theMovieDB';
 
 SwiperCore.use([Navigation, Pagination, Autoplay]);
 
 export const Hero = () => {
 
-    const [movies, setMovies] = useState([]);
+    const { popular } = useSelector(state => state.movies);
 
-    useEffect(() => {
-        getPopularMovies().then( data => {
-            
-            setMovies( data );
-        });
-
-    }, [])
 
     return (
         <div className="hero">
 
-            
             <Swiper 
                 autoplay={ {delay: 2000} }
                 // preloadImages
@@ -59,7 +52,7 @@ export const Hero = () => {
                 pagination={ {clickable: true} }>
 
                 {
-                    movies.map( movie => (
+                    popular.map( movie => (
                         <SwiperSlide key={ movie.id } onClick={ ()=> { console.log(`click on ${movie.id}`)}}> 
                         
                             <figure className="card">
