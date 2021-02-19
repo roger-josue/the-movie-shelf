@@ -1,7 +1,9 @@
 
 const baseUrl = 'https://api.themoviedb.org/3/';
 const apiKey= 'd8532795110a063abc81c58c1a79d440';
-const imgBaseUrl = 'https://image.tmdb.org/t/p/w500'
+const imgw300BaseUrl = 'https://image.tmdb.org/t/p/w300';
+// const imgw500BaseUrl = 'https://image.tmdb.org/t/p/w500';
+
 export const getPopularMovies = async() => {
     
     try {
@@ -14,10 +16,10 @@ export const getPopularMovies = async() => {
             
              results.map( movie => {
                 if( movie.backdrop_path){
-                    movie.backdrop_path = `${ imgBaseUrl}${movie.backdrop_path}`;
+                    movie.backdrop_path = `${ imgw300BaseUrl}${movie.backdrop_path}`;
                 }
                 if( movie.poster_path){
-                    movie.poster_path = `${ imgBaseUrl}${movie.poster_path}`;
+                    movie.poster_path = `${ imgw300BaseUrl}${movie.poster_path}`;
                 }
                 return movie
             });

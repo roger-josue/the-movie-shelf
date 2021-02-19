@@ -1,18 +1,6 @@
 @use '../utilities/helpers' as helpers;
 
 .hero{
-    padding-top: 1rem;
+    padding-top: 2rem;
 
-    &__title{
-        width: 95%;
-        margin: 0 auto;
-        margin-bottom: 1rem;
-        text-align: left;
-
-        &--big{
-            font-size: 2.5rem;
-            font-family: 'Domine', serif;
-            color: helpers.setColor(text-primary);
-        }
-    }
 }
