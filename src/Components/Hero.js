@@ -25,37 +25,25 @@ export const Hero = () => {
                 // preloadImages
                 // spaceBetween={10}
                 navigation
-                spaceBetween={10}
                 slidesPerView={1}
                 breakpoints={{
-                        // 400: {
-                        //   centeredSlides: false,
-                        //   slidesPerView: 2
-                        // //   spaceBetween: 20
-                        // },
                         450: {
                           slidesPerView: 2
-                        //   spaceBetween: 30
                         },
                         768: {
                             slidesPerView: 3
-                          //   spaceBetween: 30
                           },
                         900: {
                           slidesPerView: 4
-                            // spaceBetween: 20
-                        },
-                        1370: {
-                            slidesPerView: 5
-                          }
+                        }
                 }}
                 pagination={ {clickable: true} }>
 
                 {
-                    popular.map( movie => (
+                    popular.slice(0,10).map( movie => (
                         <SwiperSlide key={ movie.id } onClick={ ()=> { console.log(`click on ${movie.id}`)}}> 
                         
-                            <figure className="card">
+                            <figure className="card card--big">
                                 <img className="card__image" src={movie.poster_path} alt={movie.title}/>
                                 <figcaption className="card__body">
                                     <h3 className="card__body__title">{ movie.title}</h3>

@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
+
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Redirect
 } from "react-router-dom";
 
 import { Navbar } from "../Components/ui/Navbar";
@@ -14,7 +15,22 @@ import { CelebsScreen } from "../Components/screens/CelebsScreen";
 import { MovieScreen } from "../Components/screens/MovieScreen";
 import { CelebScreen } from "../Components/screens/CelebScreen";
 
+import {  useDispatch } from "react-redux"; 
+import { startfetchOnTheatersMovies, startfetchPopularMovies } from "../actions/movies";
+import { startfetchPopularTvShows } from "../actions/tv";
+
 export const AppRouter = () => {
+
+    const dispatch = useDispatch();
+    
+    useEffect(() => {
+        
+        dispatch( startfetchPopularMovies() );
+        dispatch( startfetchOnTheatersMovies() );
+        dispatch( startfetchPopularTvShows() );
+        
+    }, [dispatch]);
+    
     return (
         <Router>
             <div>

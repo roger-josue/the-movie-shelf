@@ -1,6 +1,6 @@
 @use '../utilities/helpers' as helpers;
 
 .hero{
-    padding-top: 2rem;
-
+    // padding: 1rem 0 2rem 0; 
+    min-height: max-content;
 }

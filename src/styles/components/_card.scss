@@ -4,9 +4,19 @@
     width: 100%;
     height: 100%;
     position: relative;
+    
+    &--big{
+        @include helpers.media(helpers.$desktop){
+            height: 90vh;
+        }
+    }
     &__image{
         width: 100%;
         height: 100%;
+
+        // &--circle{
+        //     border-radius: 50%;
+        // }
     }
     &__body{
         position: absolute;

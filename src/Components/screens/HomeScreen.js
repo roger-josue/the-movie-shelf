@@ -1,29 +1,27 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { startfetchPopularMovies } from '../../actions/movies';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { Hero } from '../Hero';
+import { Slider } from '../ui/Slider';
 
 export const HomeScreen = () => {
 
-    const dispatch = useDispatch()
+   
+    const { movies, tv } = useSelector(state => state);
+    
+    const { onTheaters } = movies;
+    const { popularShows } = tv;
+    
+    
 
-    useEffect(() => {
-        
-        dispatch( startfetchPopularMovies() );
-        
-    }, [dispatch])
     return (
         <div className="screen">
             <Hero />
 
-            <h2>On theaters</h2>
-            <Hero />
+            <Slider slides={ onTheaters } title="On Theaters"/>
+            
+            <Slider type="tv" slides={ popularShows } title="Popular On Tv"/>
 
-            <h2>Popular On Tv</h2>
-            <Hero />
-
-            <h2>Popular Actors</h2>
-            <Hero />
+            <Slider slides={ onTheaters } title="Popular Celebrities"/>
         </div>
     )
 }

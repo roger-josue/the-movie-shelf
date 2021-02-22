@@ -1,0 +1,11 @@
+@use '../utilities/helpers' as helpers;
+
+.slider{
+    // padding: 2rem 2rem 1rem 2rem;
+    padding: 2rem;
+    
+
+    &__title{
+        margin-bottom: 2rem;
+    }
+}

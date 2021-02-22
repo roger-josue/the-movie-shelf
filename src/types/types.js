@@ -6,4 +6,6 @@ export const types = {
 
     moviesFetchPopular: '[Movies] Fetch popular movies',
     moviesFetchOnTheaters: '[Movies] Fetch on theaters movies',
+
+    tvFetchPopularTvShows: '[Tv] Fetch popular tv shows',
 }
