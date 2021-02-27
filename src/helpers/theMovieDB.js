@@ -145,3 +145,6 @@ export const getPopularCelebs = async() => {
     }
 
 }
+
+// Get celeb details
+// https://api.themoviedb.org/3/person/1245?api_key=d8532795110a063abc81c58c1a79d440&language=en-US
