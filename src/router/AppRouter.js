@@ -18,6 +18,7 @@ import { CelebScreen } from "../Components/screens/CelebScreen";
 import {  useDispatch } from "react-redux"; 
 import { startfetchOnTheatersMovies, startfetchPopularMovies } from "../actions/movies";
 import { startfetchPopularTvShows } from "../actions/tv";
+import { startfetchPopularCelebs } from "../actions/celebs";
 
 export const AppRouter = () => {
 
@@ -28,6 +29,7 @@ export const AppRouter = () => {
         dispatch( startfetchPopularMovies() );
         dispatch( startfetchOnTheatersMovies() );
         dispatch( startfetchPopularTvShows() );
+        dispatch( startfetchPopularCelebs() );
         
     }, [dispatch]);
     

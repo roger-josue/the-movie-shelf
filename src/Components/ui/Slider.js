@@ -41,7 +41,7 @@ export const Slider = ({ slides, title, type="movie" }) => {
                 pagination={ {clickable: true} }>
 
                 {
-                    (type === 'movie') ?
+                    (type === 'movie') &&
                     (
                         slides.slice(0,20).map( slide => (
                             <SwiperSlide key={ slide.id } onClick={ ()=> { console.log(`click on ${slide.id}`)}}> 
@@ -57,7 +57,10 @@ export const Slider = ({ slides, title, type="movie" }) => {
                             </SwiperSlide>
                         ))
                     )
-                    : 
+                }
+
+                {
+                    (type === 'tv') && 
                     (
                         slides.slice(0,20).map( slide => (
                             <SwiperSlide key={ slide.id } onClick={ ()=> { console.log(`click on ${slide.id}`)}}> 
@@ -73,7 +76,24 @@ export const Slider = ({ slides, title, type="movie" }) => {
                             </SwiperSlide>
                         ))
                     ) 
-    
+                }
+
+                {
+                    (type === 'celeb') && 
+                    (
+                        slides.slice(0,20).map( slide => (
+                            <SwiperSlide key={ slide.id } onClick={ ()=> { console.log(`click on ${slide.id}`)}}> 
+                            
+                                <figure className="card">
+                                    <img className="card__image" src={slide.profile_path} alt={slide.name}/>
+                                    <figcaption className="card__body">
+                                        <h3 className="card__body__title">{ slide.name}</h3>
+                                    </figcaption>
+                                </figure>
+
+                            </SwiperSlide>
+                        ))
+                    ) 
                 }
 
             </Swiper>

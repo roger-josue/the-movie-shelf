@@ -6,10 +6,11 @@ import { Slider } from '../ui/Slider';
 export const HomeScreen = () => {
 
    
-    const { movies, tv } = useSelector(state => state);
+    const { movies, tv, celebs } = useSelector(state => state);
     
     const { onTheaters } = movies;
     const { popularShows } = tv;
+    const { popularCelebrities } = celebs;
     
     
 
@@ -21,7 +22,7 @@ export const HomeScreen = () => {
             
             <Slider type="tv" slides={ popularShows } title="Popular On Tv"/>
 
-            <Slider slides={ onTheaters } title="Popular Celebrities"/>
+            <Slider type="celeb" slides={ popularCelebrities } title="Popular Celebrities"/>
         </div>
     )
 }
