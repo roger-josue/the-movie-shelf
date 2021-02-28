@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 // SWiper
 import { Swiper, SwiperSlide} from 'swiper/react';
 import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper';
@@ -7,6 +7,8 @@ import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper';
 import 'swiper/swiper.scss';
 import 'swiper/components/navigation/navigation.scss';
 import 'swiper/components/pagination/pagination.scss';
+
+import { Card } from './Card';
 
 
 SwiperCore.use([Navigation, Pagination, Autoplay]);
@@ -19,8 +21,6 @@ export const Slider = ({ slides, title, type="movie" }) => {
             <h1 className="slider__title">{ title}</h1>
             <Swiper 
                 // autoplay={ {delay: 2000} }
-                // preloadImages
-                // spaceBetween={10}
                 navigation
                 spaceBetween={10}
                 slidesPerView={1}
@@ -45,15 +45,7 @@ export const Slider = ({ slides, title, type="movie" }) => {
                     (
                         slides.slice(0,20).map( slide => (
                             <SwiperSlide key={ slide.id } onClick={ ()=> { console.log(`click on ${slide.id}`)}}> 
-                            
-                                <figure className="card">
-                                    <img className="card__image" src={slide.poster_path} alt={slide.title}/>
-                                    <figcaption className="card__body">
-                                        <h3 className="card__body__title">{ slide.title}</h3>
-                                        <p className="card__body__desc">{`${slide.overview.slice(0,70)}...`}</p>
-                                    </figcaption>
-                                </figure>
-
+                                <Card name={slide.title} thumbnail={slide.poster_path} overview={slide.overview} />
                             </SwiperSlide>
                         ))
                     )
@@ -64,15 +56,7 @@ export const Slider = ({ slides, title, type="movie" }) => {
                     (
                         slides.slice(0,20).map( slide => (
                             <SwiperSlide key={ slide.id } onClick={ ()=> { console.log(`click on ${slide.id}`)}}> 
-                            
-                                <figure className="card">
-                                    <img className="card__image" src={slide.poster_path} alt={slide.name}/>
-                                    <figcaption className="card__body">
-                                        <h3 className="card__body__title">{ slide.name}</h3>
-                                        <p className="card__body__desc">{`${slide.overview.slice(0,70)}...`}</p>
-                                    </figcaption>
-                                </figure>
-
+                                <Card name={slide.name} thumbnail={slide.poster_path} overview={slide.overview} />
                             </SwiperSlide>
                         ))
                     ) 
@@ -83,14 +67,7 @@ export const Slider = ({ slides, title, type="movie" }) => {
                     (
                         slides.slice(0,20).map( slide => (
                             <SwiperSlide key={ slide.id } onClick={ ()=> { console.log(`click on ${slide.id}`)}}> 
-                            
-                                <figure className="card">
-                                    <img className="card__image" src={slide.profile_path} alt={slide.name}/>
-                                    <figcaption className="card__body">
-                                        <h3 className="card__body__title">{ slide.name}</h3>
-                                    </figcaption>
-                                </figure>
-
+                                <Card name={slide.name} thumbnail={slide.profile_path} />
                             </SwiperSlide>
                         ))
                     ) 
@@ -99,4 +76,10 @@ export const Slider = ({ slides, title, type="movie" }) => {
             </Swiper>
         </div>
     )
+}
+
+
+Slider.propTypes = {
+    slides: PropTypes.array.isRequired,
+    title: PropTypes.string.isRequired
 }

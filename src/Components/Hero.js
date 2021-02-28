@@ -9,6 +9,7 @@ import 'swiper/swiper.scss';
 import 'swiper/components/navigation/navigation.scss';
 import 'swiper/components/pagination/pagination.scss';
 
+import { Card } from './ui/Card';
 
 SwiperCore.use([Navigation, Pagination, Autoplay]);
 
@@ -22,8 +23,6 @@ export const Hero = () => {
 
             <Swiper 
                 autoplay={ {delay: 2000} }
-                // preloadImages
-                // spaceBetween={10}
                 navigation
                 slidesPerView={1}
                 breakpoints={{
@@ -42,15 +41,7 @@ export const Hero = () => {
                 {
                     popular.slice(0,10).map( movie => (
                         <SwiperSlide key={ movie.id } onClick={ ()=> { console.log(`click on ${movie.id}`)}}> 
-                        
-                            <figure className="card card--big">
-                                <img className="card__image" src={movie.poster_path} alt={movie.title}/>
-                                <figcaption className="card__body">
-                                    <h3 className="card__body__title">{ movie.title}</h3>
-                                    <p className="card__body__desc">{`${movie.overview.slice(0,100)}...`}</p>
-                                </figcaption>
-                            </figure>
-
+                            <Card name={movie.title} thumbnail={movie.poster_path} overview={movie.overview} cardBig={true} />
                         </SwiperSlide>
                     ))
                 }
