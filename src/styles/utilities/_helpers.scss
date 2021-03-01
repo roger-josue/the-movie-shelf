@@ -32,9 +32,9 @@ $lg-desktop: 1370px;
 // Mixin for styling buttons
 @mixin buttons {
     background-color: setColor(primary);
-    font-weight: 700;
+    font-weight: 800;
     color: setColor(bg-secondary);
-    padding: 0.75em;
+    padding: 0.75rem 1.225rem;
     border: none;
     outline: none;
     cursor: pointer;

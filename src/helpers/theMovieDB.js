@@ -9,11 +9,11 @@ const imgw300BaseUrl = 'https://image.tmdb.org/t/p/w300';
 
 
             // ==========Movies==========//
-export const getPopularMovies = async() => {
+export const getPopularMovies = async( page = 1 ) => {
     
     try {
         
-        const resp = await fetch(`${ baseUrl }movie/popular?api_key=${ apiKey }&language=en-US&page=1`);
+        const resp = await fetch(`${ baseUrl }movie/popular?api_key=${ apiKey }&language=en-US&page=${page}`);
         
         if(resp.ok){
             const popularResponse = await resp.json();

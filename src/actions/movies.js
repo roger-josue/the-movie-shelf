@@ -16,6 +16,27 @@ const fetchPopularMovies = ( movies ) => ({
     payload: [...movies]
 });
 
+export const startfetchNextPopularPage = () => {
+    return async(dispatch, getState)=> {
+        
+        dispatch( nextPopularPage() );
+
+        const { popularPage } = getState().movies;
+
+        const popularMovies = await getPopularMovies( popularPage );
+
+        dispatch( fetchNextPopularPage( popularMovies ) );
+    }
+}
+
+const nextPopularPage = () => ({
+    type: types.moviesNextPopularPage
+});
+
+const fetchNextPopularPage = ( movies ) => ({
+    type: types.moviesFetchNextPopularPage,
+    payload: [...movies]
+});
 
 export const startfetchOnTheatersMovies = () => {
     return async(dispatch)=> {

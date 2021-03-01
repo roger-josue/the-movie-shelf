@@ -2,6 +2,7 @@ import { types } from "../types/types";
 
 const initialState = {
     popular: [],
+    popularPage: 1,
     onTheaters: [],
 
 }
@@ -12,6 +13,16 @@ export const moviesReducer = ( state= initialState, action)=> {
             return {
                 ...state,
                 popular: action.payload
+            }
+        case types.moviesNextPopularPage:
+            return {
+                ...state,
+                popularPage: state.popularPage + 1 
+            }
+        case types.moviesFetchNextPopularPage:
+            return {
+                ...state,
+                popular: [...state.popular, ...action.payload]
             }
         case types.moviesFetchOnTheaters:
             return {
