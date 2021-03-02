@@ -15,6 +15,10 @@ export const getPopularMovies = async( page = 1 ) => {
         
         const resp = await fetch(`${ baseUrl }movie/popular?api_key=${ apiKey }&language=en-US&page=${page}`);
         
+        if(resp.status === 422){
+            throw new SyntaxError('There is no more pages to navigate');
+        }
+
         if(resp.ok){
             const popularResponse = await resp.json();
             const { results } = popularResponse;
@@ -38,8 +42,9 @@ export const getPopularMovies = async( page = 1 ) => {
             return results;
         } 
         
-    } catch (error) {
-        throw error;
+    } catch (err) {
+        // throw err;
+        console.log(err);
     }
     
 }

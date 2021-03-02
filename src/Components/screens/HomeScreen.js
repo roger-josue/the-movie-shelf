@@ -15,7 +15,7 @@ export const HomeScreen = () => {
     
 
     return (
-        <div className="screen">
+        <div className="screen fadeIn">
             <Hero />
 
             <Slider slides={ onTheaters } title="On Theaters"/>

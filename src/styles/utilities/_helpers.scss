@@ -41,7 +41,7 @@ $lg-desktop: 1370px;
     transition: background 400ms ease-in-out;
     &:focus,
     &:hover{
-        background-color: lighten(setColor( primary),7);
+        background-color: lighten(setColor( primary),15);
     }
     
 }
@@ -54,6 +54,10 @@ $lg-desktop: 1370px;
 }
 
 // Helper classes
+
+.fadeIn{
+    animation: fade-in 400ms ease-in-out forwards;
+}
 
 .active{
     color: setColor(secondary) !important;

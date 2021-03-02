@@ -16,7 +16,7 @@ export const CelebsScreen = () => {
                     ))
                 }
                 <div className="cards__load">
-                    <button className="cards__load__btn">Load more <i className="fas fa-arrow-down"></i>
+                    <button className="cards__load__btn fadeIn">Load more <i className="fas fa-arrow-down"></i>
                             {/* <i className="fas fa-spinner fa-spin"></i> */}
                     </button>
                 </div>

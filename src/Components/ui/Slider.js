@@ -17,7 +17,7 @@ export const Slider = ({ slides, title, type="movie" }) => {
 
 
     return (
-        <div className="slider">
+        <div className="slider fadeIn">
             <h1 className="slider__title">{ title}</h1>
             <Swiper 
                 // autoplay={ {delay: 2000} }
