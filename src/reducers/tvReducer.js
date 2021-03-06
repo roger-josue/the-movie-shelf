@@ -1,7 +1,8 @@
 import { types } from "../types/types";
 
 const initialState = {
-    popularShows: []
+    popularShows: [],
+    popularShowsPage: 1
 }
 
 export const tvReducer = ( state= initialState, action)=> {
@@ -10,6 +11,16 @@ export const tvReducer = ( state= initialState, action)=> {
             return {
                 ...state,
                 popularShows: action.payload
+            }
+        case types.tvNextPopularPage:
+            return {
+                ...state,
+                popularShowsPage: state.popularShowsPage + 1 
+            }
+        case types.tvFetchNextPopularPage:
+            return {
+                ...state,
+                popularShows: [...state.popularShows, ...action.payload]
             }
 
         default:

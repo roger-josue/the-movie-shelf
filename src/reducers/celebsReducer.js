@@ -1,7 +1,8 @@
 import { types } from "../types/types";
 
 const initialState = {
-    popularCelebrities: []
+    popularCelebrities: [],
+    popularCelebsPage: 1
 }
 
 export const celebsReducer = ( state= initialState, action)=> {
@@ -10,6 +11,16 @@ export const celebsReducer = ( state= initialState, action)=> {
             return {
                 ...state,
                 popularCelebrities: action.payload
+            }
+        case types.celebsNextPopularPage:
+            return {
+                ...state,
+                popularCelebsPage: state.popularCelebsPage + 1 
+            }
+        case types.celebsFetchNextPopularPage:
+            return {
+                ...state,
+                popularCelebrities: [...state.popularCelebrities, ...action.payload]
             }
 
         default:

@@ -85,11 +85,15 @@ export const getOnTheatersMovies = async() => {
 }
 
             // ==========TV Shows==========//
-export const getPopularOnTv = async() => {
+export const getPopularOnTv = async( page = 1) => {
     
     try {
         
-        const resp = await fetch(`${ baseUrl }tv/popular?api_key=${ apiKey }&language=en-US&page=1`);
+        const resp = await fetch(`${ baseUrl }tv/popular?api_key=${ apiKey }&language=en-US&page=${page}`);
+
+        if(resp.status === 422){
+            throw new SyntaxError('There is no more pages to navigate');
+        }
         
         if(resp.ok){
             const popularResponse = await resp.json();
@@ -122,11 +126,15 @@ export const getPopularOnTv = async() => {
 
 
             // ==========Celebrities==========//
-export const getPopularCelebs = async() => {
+export const getPopularCelebs = async( page = 1 ) => {
     
     try {
         
-        const resp = await fetch(`${ baseUrl }person/popular?api_key=${ apiKey }&language=en-US&page=1`);
+        const resp = await fetch(`${ baseUrl }person/popular?api_key=${ apiKey }&language=en-US&page=${ page }`);
+
+        if(resp.status === 422){
+            throw new SyntaxError('There is no more pages to navigate');
+        }
         
         if(resp.ok){
             const popularResponse = await resp.json();

@@ -1,10 +1,16 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { startfetchNextPopularTvShowsPage } from '../../actions/tv';
 import { Card } from '../ui/Card';
 
 export const TvShowsScreen = () => {
 
-    const { popularShows } = useSelector(state => state.tv);
+    const { popularShows, popularShowsPage } = useSelector(state => state.tv);
+    const dispatch = useDispatch();
+    
+    const handleNext = () => {
+        dispatch( startfetchNextPopularTvShowsPage() );
+    }
 
     return (
         <div className="screen">
@@ -16,7 +22,10 @@ export const TvShowsScreen = () => {
                     ))
                 }
                 <div className="cards__load fadeIn">
-                    <button className="cards__load__btn">Load more <i className="fas fa-arrow-down"></i>
+                    <button 
+                        className="cards__load__btn"
+                        onClick={ handleNext }
+                        disabled={ (popularShowsPage === 500) && true }>Load more <i className="fas fa-arrow-down"></i>
                             {/* <i className="fas fa-spinner fa-spin"></i> */}
                     </button>
                 </div>
