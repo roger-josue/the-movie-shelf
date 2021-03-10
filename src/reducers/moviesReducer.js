@@ -4,7 +4,7 @@ const initialState = {
     popular: [],
     popularPage: 1,
     onTheaters: [],
-
+    selectedMovie: null, 
 }
 
 export const moviesReducer = ( state= initialState, action)=> {
@@ -28,6 +28,16 @@ export const moviesReducer = ( state= initialState, action)=> {
             return {
                 ...state,
                 onTheaters: action.payload
+            }
+        case types.moviesFetchMovieDetails:
+            return {
+                ...state,
+                selectedMovie: action.payload
+        }
+        case types.moviesCleanUpSelectedMovie:
+            return {
+                ...state,
+                selectedMovie: null
             }
 
         default:

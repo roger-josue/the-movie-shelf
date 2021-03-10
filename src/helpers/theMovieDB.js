@@ -49,6 +49,41 @@ export const getPopularMovies = async( page = 1 ) => {
     
 }
 
+// GET MOVIE DETAILS
+export const getMovieDetails = async( id ) => {
+    
+    try {
+        
+        const resp = await fetch(`${ baseUrl }movie/${ id }?api_key=${ apiKey }&language=en-US`);
+
+        if(resp.ok){
+            const movie = await resp.json();
+
+            if( movie.backdrop_path){
+                movie.backdrop_path = `${ imgw300BaseUrl}${movie.backdrop_path}`;
+            }else{
+                movie.backdrop_path = `${ noImagePlaceholder }`;
+            }
+
+            if( movie.poster_path){
+                movie.poster_path = `${ imgw300BaseUrl}${movie.poster_path}`;
+            }else{
+                movie.poster_path = `${ noImagePlaceholder }`;
+            }
+
+            return movie;
+         
+        } 
+        
+    } catch (err) {
+        throw err;
+        // console.log(err);
+    }
+    
+}
+
+
+
 export const getOnTheatersMovies = async() => {
     
     try {
@@ -124,6 +159,38 @@ export const getPopularOnTv = async( page = 1) => {
 
 }
 
+export const getTvShowDetails = async( id ) => {
+    
+    try {
+        
+        const resp = await fetch(`${ baseUrl }tv/${ id }?api_key=${ apiKey }&language=en-US`);
+
+        if(resp.ok){
+            const movie = await resp.json();
+
+            if( movie.backdrop_path){
+                movie.backdrop_path = `${ imgw300BaseUrl}${movie.backdrop_path}`;
+            }else{
+                movie.backdrop_path = `${ noImagePlaceholder }`;
+            }
+
+            if( movie.poster_path){
+                movie.poster_path = `${ imgw300BaseUrl}${movie.poster_path}`;
+            }else{
+                movie.poster_path = `${ noImagePlaceholder }`;
+            }
+
+            return movie;
+         
+        } 
+        
+    } catch (err) {
+        throw err;
+        // console.log(err);
+    }
+    
+}
+
 
             // ==========Celebrities==========//
 export const getPopularCelebs = async( page = 1 ) => {
@@ -161,3 +228,28 @@ export const getPopularCelebs = async( page = 1 ) => {
 
 // Get celeb details
 // https://api.themoviedb.org/3/person/1245?api_key=d8532795110a063abc81c58c1a79d440&language=en-US
+
+export const getCelebDetails = async( id ) => {
+    
+    try {
+        
+        const resp = await fetch(`${ baseUrl }person/${ id }?api_key=${ apiKey }&language=en-US`);
+
+        if(resp.ok){
+            const celeb = await resp.json();
+
+            if( celeb.profile_path){
+                celeb.profile_path = `${ imgw300BaseUrl}${celeb.profile_path}`;
+            }else{
+                celeb.profile_path = `${ noImagePlaceholder }`;
+            }
+
+            return celeb;
+         
+        } 
+        
+    } catch (err) {
+        throw err;
+    }
+    
+}

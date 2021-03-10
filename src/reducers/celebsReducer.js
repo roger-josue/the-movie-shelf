@@ -2,7 +2,8 @@ import { types } from "../types/types";
 
 const initialState = {
     popularCelebrities: [],
-    popularCelebsPage: 1
+    popularCelebsPage: 1,
+    selectedCelebrity: null
 }
 
 export const celebsReducer = ( state= initialState, action)=> {
@@ -22,6 +23,16 @@ export const celebsReducer = ( state= initialState, action)=> {
                 ...state,
                 popularCelebrities: [...state.popularCelebrities, ...action.payload]
             }
+        case types.celebFetchCelebDetails:
+            return {
+                ...state,
+                selectedCelebrity: action.payload
+        }
+        case types.celebCleanUpSelectedCeleb:
+            return {
+                ...state,
+                selectedCelebrity: null
+        }
 
         default:
             return state;

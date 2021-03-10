@@ -1,4 +1,4 @@
-import { getPopularCelebs } from "../helpers/theMovieDB";
+import { getCelebDetails, getPopularCelebs } from "../helpers/theMovieDB";
 import { types } from "../types/types";
 
 
@@ -36,4 +36,22 @@ const nextPopularCelebsPage = () => ({
 const fetchNextPopularCelebsPage = ( celebs ) => ({
     type: types.celebsFetchNextPopularPage,
     payload: [...celebs]
+});
+
+export const startfetchCelebDetails = ( id ) => {
+    return async(dispatch)=> {
+        
+        const celeb = await getCelebDetails(id);
+
+        dispatch( fetchCelebDetails( celeb ) );
+    }
+}
+
+const fetchCelebDetails = ( celeb ) => ({
+    type: types.celebFetchCelebDetails,
+    payload: {...celeb}
+});
+
+export const cleanUpSelectedCeleb = () => ({
+    type: types.celebCleanUpSelectedCeleb
 });

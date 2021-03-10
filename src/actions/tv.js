@@ -1,4 +1,4 @@
-import { getPopularOnTv } from "../helpers/theMovieDB";
+import { getPopularOnTv, getTvShowDetails } from "../helpers/theMovieDB";
 import { types } from "../types/types";
 
 
@@ -36,4 +36,22 @@ const nextPopularTvShowsPage = () => ({
 const fetchNextPopularTvShowsPage = ( shows ) => ({
     type: types.tvFetchNextPopularPage,
     payload: [...shows]
+});
+
+export const startfetchShowDetails = ( id ) => {
+    return async(dispatch)=> {
+        
+        const show = await getTvShowDetails(id);
+
+        dispatch( fetchShowDetails( show ) );
+    }
+}
+
+const fetchShowDetails = ( show ) => ({
+    type: types.tvFetchShowDetails,
+    payload: {...show}
+});
+
+export const cleanUpSelectedShow = ( ) => ({
+    type: types.tvCleanUpSelectedShow
 });

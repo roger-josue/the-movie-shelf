@@ -1,4 +1,4 @@
-import { getOnTheatersMovies, getPopularMovies } from "../helpers/theMovieDB"
+import { getMovieDetails, getOnTheatersMovies, getPopularMovies } from "../helpers/theMovieDB"
 import { types } from "../types/types";
 
 
@@ -51,3 +51,22 @@ const fetchOnTheatersMovies = ( movies ) => ({
     type: types.moviesFetchOnTheaters,
     payload: [...movies]
 });
+
+export const startfetchMovieDetails = ( id ) => {
+    return async(dispatch)=> {
+        
+        const movie = await getMovieDetails(id);
+
+        dispatch( fetchMovieDetails( movie ) );
+    }
+}
+
+const fetchMovieDetails = ( movie ) => ({
+    type: types.moviesFetchMovieDetails,
+    payload: {...movie}
+});
+
+export const cleanUpSelectedMovie = ( ) => ({
+    type: types.moviesCleanUpSelectedMovie
+});
+
