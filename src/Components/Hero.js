@@ -40,8 +40,8 @@ export const Hero = () => {
 
                 {
                     popular.slice(0,10).map( movie => (
-                        <SwiperSlide key={ movie.id } onClick={ ()=> { console.log(`click on ${movie.id}`)}}> 
-                            <Card name={movie.title} thumbnail={movie.poster_path} overview={movie.overview} cardBig={true} />
+                        <SwiperSlide key={ movie.id }> 
+                            <Card path="/movies" id={movie.id} name={movie.title} thumbnail={movie.poster_path} overview={movie.overview} cardBig={true} />
                         </SwiperSlide>
                     ))
                 }

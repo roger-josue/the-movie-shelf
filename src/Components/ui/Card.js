@@ -1,10 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router';
 
-export const Card = ( { name, thumbnail, overview, cardBig=false} ) => {
+export const Card = ( { path ,id, name, thumbnail, overview, cardBig=false} ) => {
+
+    const history = useHistory();
+    const handleNavigation = () => {
+        history.push(`${path}/${id}`)
+    }
+
     return (
         <figure className={`card fadeIn ${ (cardBig) ? 'card--big' : '' }`}>
-            <img className="card__image" src={thumbnail} alt={name}/>
+            <img 
+                className="card__image" 
+                src={thumbnail} 
+                alt={name}
+                onClick={ handleNavigation }/>
             <figcaption className="card__body">
                 <h3 className="card__body__title">{name}</h3>
                 {

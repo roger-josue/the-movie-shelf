@@ -1,5 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import { useLocation } from 'react-router';
 import { startfetchNextPopularPage } from '../../actions/movies';
 import { Card } from '../ui/Card';
 
@@ -7,6 +8,8 @@ export const MoviesScreen = () => {
 
     const { popular, popularPage } = useSelector(state => state.movies);
     const dispatch = useDispatch();
+
+    const location = useLocation();
 
     const handleNext = () => {
         dispatch( startfetchNextPopularPage() );
@@ -19,7 +22,7 @@ export const MoviesScreen = () => {
             <div className="cards">
                 {
                     popular.map( movie => (
-                        <Card key={ movie.id } name={movie.title} thumbnail={movie.poster_path} overview={movie.overview} />
+                        <Card key={ movie.id } path={location.pathname} id={movie.id} name={movie.title} thumbnail={movie.poster_path} overview={movie.overview} />
                     ))
                 }
                 <div className="cards__load">

@@ -1,13 +1,15 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useLocation } from 'react-router';
 import { startfetchNextPopularCelebsPage } from '../../actions/celebs';
 import { Card } from '../ui/Card';
 
 export const CelebsScreen = () => {
     
     const { popularCelebrities, popularCelebsPage } = useSelector(state => state.celebs);
-
     const dispatch = useDispatch();
+
+    const location = useLocation();
     
     const handleNext = () => {
         dispatch( startfetchNextPopularCelebsPage() );
@@ -19,7 +21,7 @@ export const CelebsScreen = () => {
             <div className="cards">
                 {
                     popularCelebrities.map( celeb => (
-                        <Card key={ celeb.id } name={celeb.name} thumbnail={celeb.profile_path} />
+                        <Card key={celeb.id} path={location.pathname} id={celeb.id} name={celeb.name} thumbnail={celeb.profile_path} />
                     ))
                 }
                 <div className="cards__load">

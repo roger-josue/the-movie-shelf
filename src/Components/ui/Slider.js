@@ -44,8 +44,8 @@ export const Slider = ({ slides, title, type="movie" }) => {
                     (type === 'movie') &&
                     (
                         slides.slice(0,20).map( slide => (
-                            <SwiperSlide key={ slide.id } onClick={ ()=> { console.log(`click on ${slide.id}`)}}> 
-                                <Card name={slide.title} thumbnail={slide.poster_path} overview={slide.overview} />
+                            <SwiperSlide key={ slide.id }> 
+                                <Card path="/movies" id={slide.id} name={slide.title} thumbnail={slide.poster_path} overview={slide.overview} />
                             </SwiperSlide>
                         ))
                     )
@@ -55,8 +55,8 @@ export const Slider = ({ slides, title, type="movie" }) => {
                     (type === 'tv') && 
                     (
                         slides.slice(0,20).map( slide => (
-                            <SwiperSlide key={ slide.id } onClick={ ()=> { console.log(`click on ${slide.id}`)}}> 
-                                <Card name={slide.name} thumbnail={slide.poster_path} overview={slide.overview} />
+                            <SwiperSlide key={ slide.id }> 
+                                <Card path="/tvshows" id={slide.id} name={slide.name} thumbnail={slide.poster_path} overview={slide.overview} />
                             </SwiperSlide>
                         ))
                     ) 
@@ -66,8 +66,8 @@ export const Slider = ({ slides, title, type="movie" }) => {
                     (type === 'celeb') && 
                     (
                         slides.slice(0,20).map( slide => (
-                            <SwiperSlide key={ slide.id } onClick={ ()=> { console.log(`click on ${slide.id}`)}}> 
-                                <Card name={slide.name} thumbnail={slide.profile_path} />
+                            <SwiperSlide key={ slide.id }> 
+                                <Card path="/celebs" id={slide.id} name={slide.name} thumbnail={slide.profile_path} />
                             </SwiperSlide>
                         ))
                     ) 
