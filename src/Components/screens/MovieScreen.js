@@ -25,23 +25,28 @@ export const MovieScreen = () => {
                 (selectedMovie) &&
 
                 <div className="detail-screen">
-                    <h1>{ selectedMovie.title }</h1>
-                    <span>"{ selectedMovie.tagline }"</span>
+                    <h1 className="detail-screen__title">{ selectedMovie.title }</h1>
+                    {
+                        (selectedMovie.tagline) &&
+                        <span className="detail-screen__tagline">"{ selectedMovie.tagline }"</span>
+                    }
                     <figure className="detail-screen__poster">
                         <img src={ selectedMovie.poster_path } alt={ selectedMovie.title }/>
                     </figure>
-                    <button className="detail-screen__btn" onClick={ goBack }>Go back</button>
                     <p className="detail-screen__description">{ selectedMovie.overview }</p>
+                    <div className="detail-screen__genres">
+                        {
+                            selectedMovie.genres.map( genre => (
+                                <span key={ genre.id } className="detail-screen__genres__item">{ genre.name}</span>
+                                )
+                                )
+                            }
+                    </div>
                     {
                         (selectedMovie.homepage) &&
-                        <a className="detail-screen__call-to-action" href={selectedMovie.homepage} target="_blank" rel="noreferrer">Home Page</a>
+                        <a className="detail-screen__call-to-action" href={selectedMovie.homepage} target="_blank" rel="noreferrer">Home Page <i className="fas fa-external-link-alt"></i> </a>
                     }
-                    {
-                        selectedMovie.genres.map( genre => (
-                            <span key={ genre.id } className="detail-screen__genres">{ genre.name}</span>
-                        )
-                        )
-                    }
+                    <button className="detail-screen__btn" onClick={ goBack }> <i className="fas fa-arrow-left"></i> Go Back</button>
 
                 </div>
             }

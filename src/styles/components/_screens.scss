@@ -1,6 +1,105 @@
+@use '../utilities/helpers' as helpers;
 
 .screen{
     padding-top: 70px;
     max-width: 100vw;
     min-height: 100vh;
+}
+
+.detail-screen{
+    padding: 2rem;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+
+    &>*{
+        margin-bottom: 1rem;
+    }
+
+    &__title,
+    &__tagline{
+        text-align: center;
+        @include helpers.media(helpers.$tablet){
+            grid-column: 1/3;
+        }
+
+    }
+
+    &__poster{
+
+        @include helpers.media(helpers.$tablet){
+            grid-row: 3/8;
+        }
+        
+    }
+    &__btn{
+        @include helpers.buttons;
+        
+        &>*{
+            color: helpers.setColor(bg-secondary);
+        }
+
+        @include helpers.media(helpers.$tablet){
+            margin: 0 3rem;
+            grid-column: 2/3;
+        }
+        
+        @include helpers.media(helpers.$desktop){
+            margin: 0 7rem;
+        }
+    }
+    &__description{
+        text-align: center;
+
+        @include helpers.media(helpers.$tablet){
+            grid-column: 2/3;
+            text-align: justify;
+            grid-row: 3/4;
+        }
+    }
+    &__call-to-action{
+        margin-top: 1rem;
+        &:hover,
+        &:focus{
+            color: helpers.setColor(primary);
+            text-decoration: underline;
+            &>*{
+                color: helpers.setColor(primary);
+            }
+        }
+
+        @include helpers.media(helpers.$tablet){
+            grid-column: 2/3;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+    }
+
+    &__genres{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        flex-flow: row wrap;
+        @include helpers.media(helpers.$tablet){
+            grid-column: 2/3;
+        }
+    }
+
+    @include helpers.media(helpers.$tablet){
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @include helpers.media(helpers.$desktop){
+        padding: 2rem 10rem;
+    }
+    @include helpers.media(helpers.$lg-desktop){
+        padding: 2rem 12rem;
+    }
+    
+
+
 }
