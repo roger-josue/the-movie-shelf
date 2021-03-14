@@ -1,30 +1,44 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
-import { multiSearch } from '../../helpers/theMovieDB'
+import { startfetchSearch } from '../../actions/search';
 import { Card } from '../ui/Card';
 
 export const SearchScreen = () => {
 
     const { query } = useParams();
-    const [media, setMedia] = useState([]);
+    const { searchResult } = useSelector(state => state.search)
+    const dispatch = useDispatch();
+
+
+    const noResults = <div 
+                        style={ 
+                            {display: 'flex',
+                            width: '100vw',
+                            height: '10vh',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            padding: '0 2rem',
+                            textAlign: 'center'}}>
+                                <h2>No results for "{query}"</h2>
+                      </div>;
 
     useEffect(() => {
-        multiSearch(query).then( data => {
-            setMedia( data );
-        })
+        dispatch( startfetchSearch(query) ); 
+    
         // return () => {
 
         // }
-    }, [query]);
+    }, [query, dispatch]);
 
     return (
-        <div className="screen">
+        <div className="screen fadeIn">
             
             <div className="cards">
                 {
-                    (media) &&
+                    (searchResult.length > 0) ?
                     (
-                        media.map( row => (
+                        searchResult.map( row => (
                                 <Card key={row.id} 
                                       path={`${(row.media_type === 'person') ? '/celebs' : (row.media_type === 'movie') ? '/movies' : '/tvshows'}`} 
                                       id={row.id} 
@@ -32,6 +46,9 @@ export const SearchScreen = () => {
                                       thumbnail={`${(row.media_type === 'person' ? row.profile_path : row.poster_path )}`}
                                       overview={ `${(row.media_type === 'person') ? '' : row.overview }`}/>
                         ))
+                    ) :
+                    (
+                        noResults
                     )
                 }
             </div>

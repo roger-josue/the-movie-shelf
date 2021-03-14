@@ -20,7 +20,7 @@ export const MovieScreen = () => {
     }, [id, dispatch ])    
 
     return (
-        <div className="screen">
+        <div className="screen fadeIn">
             {
                 (selectedMovie) &&
 

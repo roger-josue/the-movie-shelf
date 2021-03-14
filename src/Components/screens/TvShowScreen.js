@@ -18,7 +18,7 @@ export const TvShowScreen = () => {
      }, [id, dispatch ])
     
     return (
-        <div className="screen">
+        <div className="screen fadeIn">
             {
                 (selectedTvShow) &&
 

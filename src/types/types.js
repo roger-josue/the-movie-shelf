@@ -4,6 +4,8 @@ export const types = {
     uiFinishLoading: '[UI] Finish loading',
     uiFinishFirstLoginRender: '[UI] Finish first login render',
 
+    searchFetchSearch: '[Movies] Fetch search content',
+
     moviesFetchPopular: '[Movies] Fetch popular movies',
     moviesNextPopularPage: '[Movies] Next popular page',
     moviesFetchNextPopularPage: '[Movies] Fetch next popular page',
