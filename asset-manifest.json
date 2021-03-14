@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/the-movie-shelf/static/css/main.628ab1cf.chunk.css",
-    "main.js": "/the-movie-shelf/static/js/main.1a326eb1.chunk.js",
-    "main.js.map": "/the-movie-shelf/static/js/main.1a326eb1.chunk.js.map",
+    "main.js": "/the-movie-shelf/static/js/main.d12ff8bc.chunk.js",
+    "main.js.map": "/the-movie-shelf/static/js/main.d12ff8bc.chunk.js.map",
     "runtime-main.js": "/the-movie-shelf/static/js/runtime-main.d99e9cce.js",
     "runtime-main.js.map": "/the-movie-shelf/static/js/runtime-main.d99e9cce.js.map",
     "static/css/2.ff8d8ad2.chunk.css": "/the-movie-shelf/static/css/2.ff8d8ad2.chunk.css",
@@ -18,6 +18,6 @@
     "static/css/2.ff8d8ad2.chunk.css",
     "static/js/2.e0caa62a.chunk.js",
     "static/css/main.628ab1cf.chunk.css",
-    "static/js/main.1a326eb1.chunk.js"
+    "static/js/main.d12ff8bc.chunk.js"
   ]
 }
