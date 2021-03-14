@@ -26,9 +26,6 @@ export const SearchScreen = () => {
     useEffect(() => {
         dispatch( startfetchSearch(query) ); 
     
-        // return () => {
-
-        // }
     }, [query, dispatch]);
 
     return (
