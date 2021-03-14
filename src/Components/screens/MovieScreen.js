@@ -50,9 +50,6 @@ export const MovieScreen = () => {
 
                 </div>
             }
-
-           
-
         </div>
     )
 }
