@@ -227,8 +227,6 @@ export const getPopularCelebs = async( page = 1 ) => {
 }
 
 // Get celeb details
-// https://api.themoviedb.org/3/person/1245?api_key=d8532795110a063abc81c58c1a79d440&language=en-US
-
 export const getCelebDetails = async( id ) => {
     
     try {
@@ -252,4 +250,56 @@ export const getCelebDetails = async( id ) => {
         throw err;
     }
     
+}
+
+
+            // ==========Multi Search==========//
+// https://api.themoviedb.org/3/search/multi?api_key=d8532795110a063abc81c58c1a79d440&language=en-US&query=avengers&page=1&include_adult=false
+export const multiSearch = async( query, page = 1 ) => {
+    
+    try {
+        
+        const resp = await fetch(`${ baseUrl }search/multi?api_key=${ apiKey }&language=en-US&query=${query}&page=${page}&include_adult=false`);
+        
+        if(resp.ok){
+            const response = await resp.json();
+            const { results } = response;
+            
+            results.map( media => {
+
+                if(media.media_type === 'movie' || media.media_type === 'tv'){
+
+                    if( media.backdrop_path){
+                        media.backdrop_path = `${ imgw300BaseUrl}${media.backdrop_path}`;
+                    }else{
+                        media.backdrop_path = `${ noImagePlaceholder }`;
+                    }
+    
+                    if( media.poster_path){
+                        media.poster_path = `${ imgw300BaseUrl}${media.poster_path}`;
+                    }else{
+                        media.poster_path = `${ noImagePlaceholder }`;
+                    }
+
+                }
+                
+                if(media.media_type === 'person'){
+                    if( media.profile_path){
+                        media.profile_path = `${ imgw300BaseUrl}${media.profile_path}`;
+                    }else{
+                        media.profile_path = `${ noImagePlaceholder }`;
+                    }
+                }
+
+
+                return media
+            });
+            
+            return results;
+        } 
+        
+    } catch (error) {
+        throw error;
+    }
+
 }

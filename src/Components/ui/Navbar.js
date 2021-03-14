@@ -1,8 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 export const Navbar = () => {
 
+    const history = useHistory();
+    const [search, setSearch] = useState('');
     const [activeLink, setActiveLink] = useState('');
     const [toggleMenu, setToggleMenu] = useState(false);
     const menu = useRef(null);
@@ -23,6 +25,23 @@ export const Navbar = () => {
             window.removeEventListener('resize',window);
         }
     }, [])
+
+    const handleSearch = (query) => {
+        setSearch(query.target.value);
+        // history.push(`search/${query}`)
+    }
+
+    const handleEnter = (target) => {
+        if(target.code === 'Enter'){
+            handleNavigation();
+        }    
+    }
+
+    const handleNavigation = () => {
+        if(search.length > 0 ){
+            history.replace(`search/${search}`);
+        }
+    }
 
     const handleActive = ( active ) => {
         setActiveLink(active);    
@@ -52,9 +71,14 @@ export const Navbar = () => {
                     className="navbar__search__input"
                     size="5"
                     placeholder="Search a movie, tv show or celebrity" 
-                    name="search"  
+                    name="search" 
+                    value={search}
+                    onChange={handleSearch} 
+                    onKeyDown={ handleEnter }
                 />
-                <button className="navbar__search__btn"> <i className="fas fa-search"></i> </button>
+                <button 
+                    className="navbar__search__btn"
+                    onClick={ handleNavigation }> <i className="fas fa-search"></i> </button>
 
             </div>
             <div className="navbar__menu-toggle">

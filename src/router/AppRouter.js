@@ -15,6 +15,7 @@ import { TvShowScreen } from "../Components/screens/TvShowScreen";
 import { TvShowsScreen } from "../Components/screens/TvShowsScreen";
 import { CelebScreen } from "../Components/screens/CelebScreen";
 import { CelebsScreen } from "../Components/screens/CelebsScreen";
+import { SearchScreen } from "../Components/screens/SearchScreen";
 
 import {  useDispatch } from "react-redux"; 
 import { startfetchOnTheatersMovies, startfetchPopularMovies } from "../actions/movies";
@@ -46,6 +47,7 @@ export const AppRouter = () => {
                     <Route exact path="/tvshows" component={ TvShowsScreen } />
                     <Route exact path="/celebs/:id" component={ CelebScreen } />
                     <Route exact path="/celebs" component={ CelebsScreen } />
+                    <Route exact path="/search/:query" component={ SearchScreen } />
                     <Redirect to="/" />
                 </Switch>
             </div>

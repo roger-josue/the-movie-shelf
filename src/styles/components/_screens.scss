@@ -8,14 +8,15 @@
 
 .detail-screen{
     padding: 2rem;
-    display: flex;
-    flex-flow: column wrap;
+    display: grid;
+    // flex-flow: column wrap;
     align-items: center;
     justify-content: center;
+    gap: 1rem;
 
-    &>*{
-        margin-bottom: 1rem;
-    }
+    // &>*{
+    //     margin-bottom: 1rem;
+    // }
 
     &__title,
     &__tagline{
@@ -27,8 +28,9 @@
     }
 
     &__poster{
-
+        text-align: center;
         @include helpers.media(helpers.$tablet){
+            text-align: left;
             grid-row: 3/8;
         }
         
@@ -40,13 +42,15 @@
             color: helpers.setColor(bg-secondary);
         }
 
+        @include helpers.media(helpers.$lg-phone){
+            margin: 0 5rem;
+        }
         @include helpers.media(helpers.$tablet){
-            margin: 0 3rem;
             grid-column: 2/3;
         }
         
         @include helpers.media(helpers.$desktop){
-            margin: 0 7rem;
+            margin: 0 6rem;
         }
     }
     &__description{
@@ -59,20 +63,28 @@
         }
     }
     &__call-to-action{
-        margin-top: 1rem;
+        margin: 1rem 2rem 0 2rem;
+        text-align: center;
+        text-decoration: underline;
         &:hover,
         &:focus{
             color: helpers.setColor(primary);
-            text-decoration: underline;
             &>*{
                 color: helpers.setColor(primary);
             }
         }
 
+        @include helpers.media(helpers.$lg-phone){
+            margin: 1rem 5rem;
+        }
+
         @include helpers.media(helpers.$tablet){
             grid-column: 2/3;
-            text-align: center;
             margin-top: 2rem;
+        }
+
+        @include helpers.media(helpers.$desktop){
+            margin: 2rem 6rem 1rem 6rem;
         }
 
     }
