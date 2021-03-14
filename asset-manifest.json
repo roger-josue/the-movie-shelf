@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/the-movie-shelf/static/css/main.628ab1cf.chunk.css",
+    "main.js": "/the-movie-shelf/static/js/main.1a326eb1.chunk.js",
+    "main.js.map": "/the-movie-shelf/static/js/main.1a326eb1.chunk.js.map",
+    "runtime-main.js": "/the-movie-shelf/static/js/runtime-main.d99e9cce.js",
+    "runtime-main.js.map": "/the-movie-shelf/static/js/runtime-main.d99e9cce.js.map",
+    "static/css/2.ff8d8ad2.chunk.css": "/the-movie-shelf/static/css/2.ff8d8ad2.chunk.css",
+    "static/js/2.e0caa62a.chunk.js": "/the-movie-shelf/static/js/2.e0caa62a.chunk.js",
+    "static/js/2.e0caa62a.chunk.js.map": "/the-movie-shelf/static/js/2.e0caa62a.chunk.js.map",
+    "index.html": "/the-movie-shelf/index.html",
+    "static/css/2.ff8d8ad2.chunk.css.map": "/the-movie-shelf/static/css/2.ff8d8ad2.chunk.css.map",
+    "static/css/main.628ab1cf.chunk.css.map": "/the-movie-shelf/static/css/main.628ab1cf.chunk.css.map",
+    "static/js/2.e0caa62a.chunk.js.LICENSE.txt": "/the-movie-shelf/static/js/2.e0caa62a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d99e9cce.js",
+    "static/css/2.ff8d8ad2.chunk.css",
+    "static/js/2.e0caa62a.chunk.js",
+    "static/css/main.628ab1cf.chunk.css",
+    "static/js/main.1a326eb1.chunk.js"
+  ]
+}
