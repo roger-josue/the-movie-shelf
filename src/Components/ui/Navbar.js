@@ -28,7 +28,6 @@ export const Navbar = () => {
 
     const handleSearch = (query) => {
         setSearch(query.target.value);
-        // history.push(`search/${query}`)
     }
 
     const handleEnter = (target) => {
@@ -39,7 +38,7 @@ export const Navbar = () => {
 
     const handleNavigation = () => {
         if(search.length > 0 ){
-            history.replace(`search/${search}`);
+            history.push(`/search/${search}`);
         }
     }
 

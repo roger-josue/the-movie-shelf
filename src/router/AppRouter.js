@@ -41,13 +41,13 @@ export const AppRouter = () => {
                 <Navbar />
                 <Switch>
                     <Route exact path="/" component={ HomeScreen } />
+                    <Route exact path="/search/:query" component={ SearchScreen } />
                     <Route exact path="/movies/:id" component={ MovieScreen } />
                     <Route exact path="/movies" component={ MoviesScreen } />
                     <Route exact path="/tvshows/:id" component={ TvShowScreen } />
                     <Route exact path="/tvshows" component={ TvShowsScreen } />
                     <Route exact path="/celebs/:id" component={ CelebScreen } />
                     <Route exact path="/celebs" component={ CelebsScreen } />
-                    <Route exact path="/search/:query" component={ SearchScreen } />
                     <Redirect to="/" />
                 </Switch>
             </div>

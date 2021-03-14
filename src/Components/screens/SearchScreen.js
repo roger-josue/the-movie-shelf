@@ -6,11 +6,10 @@ import { Card } from '../ui/Card';
 export const SearchScreen = () => {
 
     const { query } = useParams();
-    const [media, setMedia] = useState(null);
+    const [media, setMedia] = useState([]);
 
     useEffect(() => {
         multiSearch(query).then( data => {
-            console.log(data);
             setMedia( data );
         })
         // return () => {
