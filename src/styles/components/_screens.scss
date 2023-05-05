@@ -1,117 +1,161 @@
 @use '../utilities/helpers' as helpers;
 
-.screen{
+.screen {
     padding-top: 70px;
-    max-width: 100vw;
+    margin: 0 auto;
+    width: 100vw;
+    @include helpers.media(helpers.$tablet) {
+        width: 90vw;
+    }
     min-height: 100vh;
 }
 
-.detail-screen{
-    padding: 2rem;
+.detail-screen {
+    padding: 2rem 0;
+    margin: 0 auto;
     display: grid;
     // flex-flow: column wrap;
     align-items: center;
     justify-content: center;
     gap: 1rem;
 
+    max-width: 100%;
+    @include helpers.media(helpers.$lg-phone) {
+        max-width: 80%;
+    }
+    @include helpers.media(helpers.$tablet) {
+        max-width: 100%;
+    }
+
+    @include helpers.media(helpers.$lg-desktop) {
+        max-width: 80%;
+    }
+
     // &>*{
     //     margin-bottom: 1rem;
     // }
 
     &__title,
-    &__tagline{
+    &__tagline {
         text-align: center;
-        @include helpers.media(helpers.$tablet){
-            grid-column: 1/3;
+
+        @include helpers.media(helpers.$tablet) {
+            grid-column: 2/3;
         }
 
     }
 
-    &__poster{
+    &__poster {
         text-align: center;
-        @include helpers.media(helpers.$tablet){
+        width: 100%;
+        height: 100%;
+
+        @include helpers.media(helpers.$tablet) {
             text-align: left;
-            grid-row: 3/8;
+            grid-row: 1/8;
         }
-        
+
+        &>img {
+            width: 100%;
+
+            @include helpers.media(helpers.$tablet) {
+                width: 90%;
+            }
+
+            @include helpers.media(helpers.$desktop) {
+                width: 80%;
+            }
+
+            // height: 100%;
+        }
+
     }
-    &__btn{
+
+    &__btn {
         @include helpers.buttons;
-        
-        &>*{
+
+        &>* {
             color: helpers.setColor(bg-secondary);
         }
 
-        @include helpers.media(helpers.$lg-phone){
+        @include helpers.media(helpers.$lg-phone) {
             margin: 0 5rem;
         }
-        @include helpers.media(helpers.$tablet){
+
+        @include helpers.media(helpers.$tablet) {
             grid-column: 2/3;
+            grid-row: 7/8;
         }
-        
-        @include helpers.media(helpers.$desktop){
+
+        @include helpers.media(helpers.$desktop) {
             margin: 0 6rem;
         }
     }
-    &__description{
+
+    &__description {
         text-align: center;
 
-        @include helpers.media(helpers.$tablet){
+        @include helpers.media(helpers.$tablet) {
             grid-column: 2/3;
             text-align: justify;
             grid-row: 3/4;
         }
     }
-    &__call-to-action{
+
+    &__call-to-action {
         margin: 1rem 2rem 0 2rem;
         text-align: center;
         text-decoration: underline;
+
         &:hover,
-        &:focus{
+        &:focus {
             color: helpers.setColor(primary);
-            &>*{
+
+            &>* {
                 color: helpers.setColor(primary);
             }
         }
 
-        @include helpers.media(helpers.$lg-phone){
+        @include helpers.media(helpers.$lg-phone) {
             margin: 1rem 5rem;
         }
 
-        @include helpers.media(helpers.$tablet){
+        @include helpers.media(helpers.$tablet) {
             grid-column: 2/3;
             margin-top: 2rem;
         }
 
-        @include helpers.media(helpers.$desktop){
+        @include helpers.media(helpers.$desktop) {
             margin: 2rem 6rem 1rem 6rem;
         }
 
     }
 
-    &__genres{
+    &__genres {
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 1rem;
         flex-flow: row wrap;
-        @include helpers.media(helpers.$tablet){
+
+        @include helpers.media(helpers.$tablet) {
             grid-column: 2/3;
         }
     }
 
-    @include helpers.media(helpers.$tablet){
+    @include helpers.media(helpers.$tablet) {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
     }
-    
-    @include helpers.media(helpers.$desktop){
-        padding: 2rem 10rem;
-    }
-    @include helpers.media(helpers.$lg-desktop){
-        padding: 2rem 12rem;
-    }
-    
+
+    // @include helpers.media(helpers.$desktop) {
+    //     padding: 2rem 10rem;
+    // }
+
+    // @include helpers.media(helpers.$lg-desktop) {
+    //     padding: 2rem 12rem;
+    // }
+
 
 
 }

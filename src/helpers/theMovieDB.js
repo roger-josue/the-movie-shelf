@@ -3,8 +3,7 @@ import noImagePlaceholder from '../assets/no_image.png';
 
 const baseUrl = 'https://api.themoviedb.org/3/';
 const apiKey= 'd8532795110a063abc81c58c1a79d440';
-const imgw300BaseUrl = 'https://image.tmdb.org/t/p/w300';
-// const imgw500BaseUrl = 'https://image.tmdb.org/t/p/w500';
+const imgwOriginalBaseUrl = 'https://image.tmdb.org/t/p/original';
 
 
 
@@ -25,13 +24,13 @@ export const getPopularMovies = async( page = 1 ) => {
             
              results.map( movie => {
                 if( movie.backdrop_path){
-                    movie.backdrop_path = `${ imgw300BaseUrl}${movie.backdrop_path}`;
+                    movie.backdrop_path = `${ imgwOriginalBaseUrl}${movie.backdrop_path}`;
                 }else{
                     movie.backdrop_path = `${ noImagePlaceholder }`;
                 }
 
                 if( movie.poster_path){
-                    movie.poster_path = `${ imgw300BaseUrl}${movie.poster_path}`;
+                    movie.poster_path = `${ imgwOriginalBaseUrl}${movie.poster_path}`;
                 }else{
                     movie.poster_path = `${ noImagePlaceholder }`;
                 }
@@ -60,13 +59,13 @@ export const getMovieDetails = async( id ) => {
             const movie = await resp.json();
 
             if( movie.backdrop_path){
-                movie.backdrop_path = `${ imgw300BaseUrl}${movie.backdrop_path}`;
+                movie.backdrop_path = `${ imgwOriginalBaseUrl}${movie.backdrop_path}`;
             }else{
                 movie.backdrop_path = `${ noImagePlaceholder }`;
             }
 
             if( movie.poster_path){
-                movie.poster_path = `${ imgw300BaseUrl}${movie.poster_path}`;
+                movie.poster_path = `${ imgwOriginalBaseUrl}${movie.poster_path}`;
             }else{
                 movie.poster_path = `${ noImagePlaceholder }`;
             }
@@ -96,13 +95,13 @@ export const getOnTheatersMovies = async() => {
             
              results.map( movie => {
                 if( movie.backdrop_path){
-                    movie.backdrop_path = `${ imgw300BaseUrl}${movie.backdrop_path}`;
+                    movie.backdrop_path = `${ imgwOriginalBaseUrl}${movie.backdrop_path}`;
                 }else{
                     movie.backdrop_path = `${ noImagePlaceholder }`;
                 }
 
                 if( movie.poster_path){
-                    movie.poster_path = `${ imgw300BaseUrl}${movie.poster_path}`;
+                    movie.poster_path = `${ imgwOriginalBaseUrl}${movie.poster_path}`;
                 }else{
                     movie.poster_path = `${ noImagePlaceholder }`;
                 }
@@ -136,13 +135,13 @@ export const getPopularOnTv = async( page = 1) => {
             
             results.map( show => {
                 if( show.backdrop_path){
-                    show.backdrop_path = `${ imgw300BaseUrl}${show.backdrop_path}`;
+                    show.backdrop_path = `${ imgwOriginalBaseUrl}${show.backdrop_path}`;
                 }else{
                     show.backdrop_path = `${ noImagePlaceholder }`;
                 }
 
                 if( show.poster_path){
-                    show.poster_path = `${ imgw300BaseUrl}${show.poster_path}`;
+                    show.poster_path = `${ imgwOriginalBaseUrl}${show.poster_path}`;
                 }else{
                     show.poster_path = `${ noImagePlaceholder }`;
                 }
@@ -169,13 +168,13 @@ export const getTvShowDetails = async( id ) => {
             const movie = await resp.json();
 
             if( movie.backdrop_path){
-                movie.backdrop_path = `${ imgw300BaseUrl}${movie.backdrop_path}`;
+                movie.backdrop_path = `${ imgwOriginalBaseUrl}${movie.backdrop_path}`;
             }else{
                 movie.backdrop_path = `${ noImagePlaceholder }`;
             }
 
             if( movie.poster_path){
-                movie.poster_path = `${ imgw300BaseUrl}${movie.poster_path}`;
+                movie.poster_path = `${ imgwOriginalBaseUrl}${movie.poster_path}`;
             }else{
                 movie.poster_path = `${ noImagePlaceholder }`;
             }
@@ -209,7 +208,7 @@ export const getPopularCelebs = async( page = 1 ) => {
             
             results.map( celeb => {
                 if( celeb.profile_path){
-                    celeb.profile_path = `${ imgw300BaseUrl}${celeb.profile_path}`;
+                    celeb.profile_path = `${ imgwOriginalBaseUrl}${celeb.profile_path}`;
                 }else{
                     celeb.profile_path = `${ noImagePlaceholder }`;
                 }
@@ -237,7 +236,7 @@ export const getCelebDetails = async( id ) => {
             const celeb = await resp.json();
 
             if( celeb.profile_path){
-                celeb.profile_path = `${ imgw300BaseUrl}${celeb.profile_path}`;
+                celeb.profile_path = `${ imgwOriginalBaseUrl}${celeb.profile_path}`;
             }else{
                 celeb.profile_path = `${ noImagePlaceholder }`;
             }
@@ -270,13 +269,13 @@ export const multiSearch = async( query, page = 1 ) => {
                 if(media.media_type === 'movie' || media.media_type === 'tv'){
 
                     if( media.backdrop_path){
-                        media.backdrop_path = `${ imgw300BaseUrl}${media.backdrop_path}`;
+                        media.backdrop_path = `${ imgwOriginalBaseUrl}${media.backdrop_path}`;
                     }else{
                         media.backdrop_path = `${ noImagePlaceholder }`;
                     }
     
                     if( media.poster_path){
-                        media.poster_path = `${ imgw300BaseUrl}${media.poster_path}`;
+                        media.poster_path = `${ imgwOriginalBaseUrl}${media.poster_path}`;
                     }else{
                         media.poster_path = `${ noImagePlaceholder }`;
                     }
@@ -285,7 +284,7 @@ export const multiSearch = async( query, page = 1 ) => {
                 
                 if(media.media_type === 'person'){
                     if( media.profile_path){
-                        media.profile_path = `${ imgw300BaseUrl}${media.profile_path}`;
+                        media.profile_path = `${ imgwOriginalBaseUrl}${media.profile_path}`;
                     }else{
                         media.profile_path = `${ noImagePlaceholder }`;
                     }

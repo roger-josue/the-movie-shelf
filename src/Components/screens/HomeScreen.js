@@ -5,24 +5,26 @@ import { Slider } from '../ui/Slider';
 
 export const HomeScreen = () => {
 
-   
+
     const { movies, tv, celebs } = useSelector(state => state);
-    
+
     const { onTheaters } = movies;
     const { popularShows } = tv;
     const { popularCelebrities } = celebs;
-    
-    
+
+
 
     return (
-        <div className="screen fadeIn">
+        <>
             <Hero />
+            <div className="screen fadeIn">
 
-            <Slider slides={ onTheaters } title="On Theaters"/>
-            
-            <Slider type="tv" slides={ popularShows } title="Popular On Tv"/>
+                <Slider slides={onTheaters} title="On Theaters" />
 
-            <Slider type="celeb" slides={ popularCelebrities } title="Popular Celebrities"/>
-        </div>
+                <Slider type="tv" slides={popularShows} title="Popular On Tv" />
+
+                <Slider type="celeb" slides={popularCelebrities} title="Popular Celebrities" />
+            </div>
+        </>
     )
 }

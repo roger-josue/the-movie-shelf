@@ -32,9 +32,12 @@ export const Hero = () => {
                         768: {
                             slidesPerView: 3
                           },
-                        900: {
-                          slidesPerView: 4
-                        }
+                        1200: {
+                            slidesPerView: 4
+                          },
+                        1500: {
+                            slidesPerView: 5
+                          }
                 }}
                 pagination={ {clickable: true} }>
 
