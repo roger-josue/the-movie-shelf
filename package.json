@@ -1,6 +1,6 @@
 {
   "name": "the-movie-shelf",
-  "homepage":"https://JosueVargasZ.github.io/the-movie-shelf" ,
+  "homepage":"https://themovieshelf.roger-vargas.dev" ,
   "version": "0.1.0",
   "private": true,
   "dependencies": {
